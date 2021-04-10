@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+
+spring:
+  profiles:
+    include: jdbc
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  thymeleaf:
+    cache: false
+    mode: LEGACYHTML5
+
+
+pagehelper:
+  reasonable: false #禁用合理化时，如果pageNum<1或pageNum>pages会返回空数据support-methods-arguments: true
+  params: count=countsql
+  row-bounds-with-count:
+  truehelper-dialect: mysql
+
