@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.exprimentplat.mybatisplus.springboot.mapper.auto.ExpModelMapper">
+<mapper namespace="com.john.exprimentplat.mapper.auto.ExpModelMapper">
 
-    <select id="findAllexp" resultType="com.exprimentplat.mybatisplus.springboot.model.auto.ExpModel" parameterType="map" >
+    <select id="findAllexp" resultType="com.john.exprimentplat.model.auto.ExpModel" parameterType="map" >
     select * from t_exp_model limit #{pageNum},9
     </select>
     <select id="count" resultType="java.lang.Integer">
