@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/spring_teach?serverTimezone=UTC&characterEncoding=utf-8&useUnicode=true&characterSetResults=utf8&allowMultiQueries=true&useSSL=true
+    url: jdbc:mysql://localhost:3306/experimentplatformv2?serverTimezone=UTC&characterEncoding=utf-8&useUnicode=true&characterSetResults=utf8&allowMultiQueries=true&useSSL=true
     username: root
     password: 123456
     sql-script-encoding: utf-8
@@ -44,25 +44,25 @@ spring:
 
 
 
-#三个中横杠多行注释
----
-spring:
-  profiles: produce
-  datasource:
-  driver-class-name: com.mysql.cj.jbc.Driver
-  url: jdbc:mysql://localhost:3306/spring_teach?serverTimezone=UTC&characterEncoding=utf-8&useUnicode=true&characterSetResults=utf8&allowMultiQueries=true&useSSL=true
-  username: root
-  password: 123456
----
-
-
+##三个中横杠多行注释
+#---
+#spring:
+#  profiles: produce
+#  datasource:
+#  driver-class-name: com.mysql.cj.jbc.Driver
+#  url: jdbc:mysql://localhost:3306/?serverTimezone=UTC&characterEncoding=utf-8&useUnicode=true&characterSetResults=utf8&allowMultiQueries=true&useSSL=true
+#  username: root
+#  password: 123456
+#---
+#
+#
 
 mybatis-plus:
-  #如果是放在src/main/java目录下classpath: / com/coolwen/mybatis/plus/*/mapper/*Mapper .xm1l
+  #如果是放在src/main/java目录下classpath: classpath:com/exprimentplat/mybatisplus/springboot/**/**.xml
   #如果是放在resource目录classpath : / mapper/*Mapper .xml
-  mapper-locations: classpath:/mapper/*Mapper.xm1,classpath:com/exprimentplat/mybatisplus/springboot/**/**.xml
+  mapper-locations: classpath:/mapper/*Mapper.xml
   #实体扫描，多个package用逗号或者分号分隔
-  typeAliasesPackage: com/exprimentplat/mybatisplus/springboot.entity, com/exprimentplat/mybatisplus/springboot.**.pojo
+  typeAliasesPackage: com/exprimentplat/mybatisplus/springboot.mapper
   global-config:
     db-config:
       #自动下横线转驼峰式

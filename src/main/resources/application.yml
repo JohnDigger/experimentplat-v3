@@ -1,18 +1,22 @@
 server:
   port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
 
 
 spring:
   profiles:
     include: jdbc
-  http:
-    encoding:
-      charset: UTF-8
-      enabled: true
-      force: true
+  jpa:
+    open-in-view: false
+
   thymeleaf:
     cache: false
-    mode: LEGACYHTML5
+    mode: HTML
+#    mode: LEGACYHTML5
 
 
 pagehelper:
@@ -21,3 +25,5 @@ pagehelper:
   row-bounds-with-count:
   truehelper-dialect: mysql
 
+#web:
+#  ${count-path}:C:/count.txt

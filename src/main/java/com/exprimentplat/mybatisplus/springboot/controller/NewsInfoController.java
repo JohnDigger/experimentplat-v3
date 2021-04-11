@@ -13,11 +13,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -26,13 +22,13 @@ import java.util.List;
 import java.util.Map;
 
 @Slf4j
-@Controller
+@RestController
 @RequestMapping(value = "/newsinfo")
 @Api(tags = "NewsInfoController", description = "首页内容管理")
 public class NewsInfoController {
-    @Autowired
+    @Autowired(required = false)
     NewsInfoMapper newsInfoMapper;
-    @Autowired
+    @Autowired(required = false)
     ExpModelMapper expModelMapper;
     @Autowired
     SetInfoServiceImpl setInfoService;
@@ -40,16 +36,16 @@ public class NewsInfoController {
     IEffectService effectService;
     @Autowired
     private ICourseInfoService courseInfoService;
-    @Autowired
+    @Autowired(required = false)
     private KaoheModelMapper kaoheModelMapper;
-    @Autowired
+    @Autowired(required = false)
     private StudentMapper studentMapper;
-    @Autowired
+    @Autowired(required = false)
     private TeacherMapper teacherMapper;
     @Autowired
     NewsInfoServiceImpl newsInfoService;
 
-    @Value("${web.count-path}")
+//    @Value("${web.count-path}")
     private String count;
 
     @ApiOperation("首页内容的api")

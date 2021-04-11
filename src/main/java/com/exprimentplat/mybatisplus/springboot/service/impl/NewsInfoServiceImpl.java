@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class NewsInfoServiceImpl implements INewsInfoService {
-    @Autowired
+    @Autowired(required = false)
     NewsInfoMapper newsInfoMapper;
     @Override
     public Integer findAllmodelpeople() {
