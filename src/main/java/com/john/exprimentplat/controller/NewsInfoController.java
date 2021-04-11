@@ -87,6 +87,7 @@ public class NewsInfoController {
                 }
             } catch (Exception e) {
 
+
             }
         }
         log.debug(">>"+effects);
