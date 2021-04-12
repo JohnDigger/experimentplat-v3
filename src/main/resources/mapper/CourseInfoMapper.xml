@@ -3,8 +3,11 @@
 
 <mapper namespace="com.john.exprimentplat.mapper.auto.CourseInfoMapper">
 
-    <select id="findAll" resultType="com.john.exprimentplat.model.auto.CourseInfo" parameterType="map" >
+    <select id="findAll" resultType="com.john.exprimentplat.model.auto.CourseInfo" parameterType="Map" >
         select * from t_course_info
+    </select>
+    <select id="findAllByCourseCode" resultType="com.john.exprimentplat.model.auto.CourseInfo" parameterType="java.lang.String" >
+        select * from t_course_info where course_code = #{courseCode}
     </select>
 
 </mapper>

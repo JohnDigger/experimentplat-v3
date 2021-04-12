@@ -5,7 +5,9 @@ import cn.afterturn.easypoi.excel.entity.ImportParams;
 import com.john.exprimentplat.api.CommonResult;
 import com.john.exprimentplat.model.auto.CourseInfo;
 import com.john.exprimentplat.model.auto.EasyPOI.CourseAndModelImport;
+import com.john.exprimentplat.model.auto.ExpModel;
 import com.john.exprimentplat.service.ICourseInfoService;
+import com.john.exprimentplat.service.IExpModelService;
 import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +29,8 @@ public class ExpmodelController {
     protected static final Logger logger = LoggerFactory.getLogger(ExpmodelController.class);
     @Autowired
     ICourseInfoService iCourseInfoService;
-
+    @Autowired
+    IExpModelService iexpModelService;
     /**
      * Excel导入题目
      *
@@ -37,11 +40,10 @@ public class ExpmodelController {
      * @throws Exception
      */
     @PostMapping("/ExcelInputExpModel")
-    public CommonResult<Map<String,Object>> upload(@RequestParam("file") MultipartFile multipartFile) throws Exception {
+    public CommonResult<String> upload(@RequestParam("file") MultipartFile multipartFile) throws Exception {
         logger.debug("开始导入-----");
         //easyPOI工具
         ImportParams params = new ImportParams();
-        Map<String,Object> map = new HashMap<>();
         //设置Excel中表头占用行数1
         params.setHeadRows(1);
         //设置Excel中大标题占用行数,此模板未使用标题
@@ -70,8 +72,26 @@ public class ExpmodelController {
                 iCourseInfoService.update();
                 courseId = courseInfo.getId();
             }
-
+            ExpModel expModel = new ExpModel();
+            expModel.setCourseId(courseId);
+            expModel.setMName(oneQ.getMName());
+            expModel.setMManager(oneQ.getMManager());
+            expModel.setMType(oneQ.getMType());
+            expModel.setClasshour(Integer.parseInt(oneQ.getClassHour()));
+            expModel.setIntroduce(oneQ.getIntroduce());
+            expModel.setPurpose(oneQ.getPurpose());
+            expModel.setPrinciple(oneQ.getPrinciple());
+            expModel.setMContent(oneQ.getMContent());
+            expModel.setMEdataIntro(oneQ.getMDataIntro());
+            expModel.setMStep(oneQ.getMType());
+            expModel.setMInurl(oneQ.getMInurl());
+            expModel.setImageurl("none");
+            expModel.setNeedKaohe(false);
+            expModel.setReportType(true);
+            //保存到数据库
+            iexpModelService.update();
         }
-       return CommonResult.success(map);
+        logger.debug("导入成功-------" + result);
+        return CommonResult.success("redirect:/expmodel/list");
     }
 }
