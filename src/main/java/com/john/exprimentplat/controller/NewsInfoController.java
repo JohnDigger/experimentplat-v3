@@ -49,6 +49,7 @@ public class NewsInfoController {
     @Autowired
     NewsInfoServiceImpl newsInfoService;
 
+
     @Value("${web.count-path}")
     private String count;
 
