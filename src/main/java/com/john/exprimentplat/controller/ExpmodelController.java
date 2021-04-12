@@ -50,6 +50,8 @@ public class ExpmodelController {
         List<CourseAndModelImport> result = ExcelImportUtil.importExcel(multipartFile.getInputStream(),
                 CourseAndModelImport.class, params);
         //遍历行
+
+
         for (CourseAndModelImport oneQ : result) {
 
             List<CourseInfo> courseList = iCourseInfoService.findAllByCourseCode(oneQ.getCourseCode());
