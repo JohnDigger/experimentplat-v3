@@ -139,7 +139,6 @@ public class NewsInfoController {
     }
 
 
-
     public static Long Get_Visit_Count(String txtFilePath) {
         try {
             File file = new File(txtFilePath);
