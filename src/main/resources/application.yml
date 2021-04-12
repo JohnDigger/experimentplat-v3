@@ -25,5 +25,5 @@ pagehelper:
   row-bounds-with-count:
   truehelper-dialect: mysql
 
-#web:
-#  ${count-path}:C:/count.txt
+web:
+  count-path: C:/count/txt
