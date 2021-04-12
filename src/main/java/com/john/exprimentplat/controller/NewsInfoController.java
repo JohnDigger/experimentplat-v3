@@ -51,7 +51,6 @@ public class NewsInfoController {
 
     @Value("${web.count-path}")
     private String count;
-
     @ApiOperation("首页内容的api")
     @GetMapping(value = "/newslist")
     @ResponseBody
@@ -94,6 +93,7 @@ public class NewsInfoController {
         }
         log.debug(">>"+effects);
         map1.put("effects",effects);
+
 
         //课程展示
         List<CourseInfo> courseInfos = courseInfoService.findAll();
