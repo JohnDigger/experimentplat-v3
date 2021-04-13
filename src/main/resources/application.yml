@@ -27,3 +27,4 @@ pagehelper:
 
 web:
   count-path: C:/count/txt
+  template-path: C:/ExperimentPlatform/template/
